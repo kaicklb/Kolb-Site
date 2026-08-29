@@ -352,6 +352,43 @@
     .step-arrow{display:none;}
     .step{width:120px;}
     .hero{padding:90px 0 70px;}
+    .hero-rings{width:600px; height:600px;}
+    .nav{padding:14px 18px;}
+    .brand-name{font-size:17px;}
+    .btn{padding:10px 16px; font-size:13px;}
+    .hero-cta{flex-direction:column; align-items:stretch;}
+    .hero-cta .btn{width:100%; justify-content:center;}
+    .wrap{padding:0 20px;}
+    .cta-final .hero-cta{max-width:320px; margin:0 auto;}
+    .phone{width:230px;}
+    .foot-inner{flex-direction:column; align-items:flex-start;}
+    .foot-bottom{flex-direction:column;}
+  }
+
+  /* ---------- Animação ao rolar a página ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  /* Itens dentro de grids (cards, steps, onde-grid) entram em sequência */
+  .reveal-stagger > *{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .55s ease, transform .55s ease;
+  }
+  .reveal-stagger.is-visible > *{
+    opacity:1;
+    transform:translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal-stagger > *{
+      opacity:1 !important; transform:none !important; transition:none !important;
+    }
   }
 </style>
 </head>
@@ -385,7 +422,6 @@
       <a href="#onde">Onde usar</a>
     </nav>
     <div class="navcta">
-      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn btn-ghost">Falar com a gente</a>
       <a href="#cta" class="btn btn-primary">Começar agora</a>
     </div>
   </div>
@@ -412,13 +448,13 @@
 
 <section class="conceito" id="como-funciona">
   <div class="wrap">
-    <div class="conceito-head">
+    <div class="conceito-head reveal">
       <span class="eyebrow">Conceito</span>
       <h2>Kolb é a ponte entre o físico e o digital</h2>
       <p>Através de um toque, informações se conectam, experiências acontecem e possibilidades se abrem — sem app para baixar, sem fricção, sem complicação.</p>
     </div>
 
-    <div class="steps">
+    <div class="steps reveal-stagger">
       <div class="step">
         <div class="step-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#B9A8FF" stroke-width="2" stroke-linecap="round"><path d="M9 6c-4 2-4 10 0 12M15 6c4 2 4 10 0 12"/></svg>
@@ -444,7 +480,7 @@
       </div>
     </div>
 
-    <div class="pillars">
+    <div class="pillars reveal-stagger">
       <span class="pillar">Simples</span>
       <span class="pillar">Inteligente</span>
       <span class="pillar">Confiável</span>
@@ -455,11 +491,11 @@
 
 <section class="solucoes" id="solucoes">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <span class="eyebrow">Soluções</span>
       <h2>Um kit para cada forma de conectar</h2>
     </div>
-    <div class="cards">
+    <div class="cards reveal-stagger">
       <div class="card">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg></div>
         <h3>Cartão NFC</h3>
@@ -481,7 +517,7 @@
 
 <section class="experiencia" id="experiencia">
   <div class="wrap exp-grid">
-    <div>
+    <div class="reveal">
       <div class="phone">
         <div class="phone-top">
           <div class="logomark" data-logo style="width:22px;height:18px;"></div>
@@ -498,7 +534,7 @@
         <div class="phone-cta">Compartilhar com um toque</div>
       </div>
     </div>
-    <div class="exp-copy">
+    <div class="exp-copy reveal">
       <span class="eyebrow">Experiência</span>
       <h2>Um toque abre exatamente o que você quer mostrar</h2>
       <p>O painel Kolb deixa você escolher e atualizar, a qualquer momento, o que aparece quando alguém encosta o celular — sem trocar o cartão, sem reimprimir nada.</p>
@@ -513,11 +549,11 @@
 
 <section class="onde" id="onde">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <span class="eyebrow">Onde pode ser usado</span>
-      <h2>FEITO PARA SEU TIPO DE NÉGOCIO</h2>
+      <h2>Feito para o seu tipo de negócio</h2>
     </div>
-    <div class="onde-grid">
+    <div class="onde-grid reveal-stagger">
       <div class="onde-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7a2 2 0 0 0 2 2h1v11M6 2v6M9 2v6M14 2s-2 2-2 6 2 4 2 4v10"/></svg><span>Restaurantes</span></div>
       <div class="onde-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.5 3.5-7 8-7s8 2.5 8 7"/></svg><span>Eventos</span></div>
       <div class="onde-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg><span>Hotéis</span></div>
@@ -531,7 +567,7 @@
 </section>
 
 <section class="cta-final" id="cta">
-  <div class="wrap">
+  <div class="wrap reveal">
     <span class="eyebrow">Vamos começar</span>
     <h2 style="margin-top:14px;">Aproxime. Conecte. Aconteça.</h2>
     <p>Fale com a gente e monte o kit certo para o seu negócio — do primeiro cartão à assinatura completa.</p>
@@ -572,6 +608,30 @@
     svg.style.width = '100%';
     svg.style.height = '100%';
   });
+
+  // Anima seções e cards conforme entram na tela ao rolar a página
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+    // Escalona a entrada dos itens dentro de cada grid (cards, steps, etc.)
+    document.querySelectorAll('.reveal-stagger').forEach(group => {
+      [...group.children].forEach((child, i) => {
+        child.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+  } else {
+    // Sem suporte ao IntersectionObserver: mostra tudo direto, sem animação
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => el.classList.add('is-visible'));
+  }
 </script>
 
 </body>
